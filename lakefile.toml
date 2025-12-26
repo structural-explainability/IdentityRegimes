@@ -22,12 +22,12 @@ license = "MIT"
 
 # REQ.PROJECT.KEYWORDS
 #   Discovery metadata for Lean, GitHub, and academic indexing.
-#   CUSTOM: Adjust to reflect repository scope.
+#   CUSTOM: Adjust to reflect scope.
 keywords = [
-  "formal-ontology",
-  "identity-regimes",
   "structural-explainability",
   "accountability",
+  "identity-regimes",
+  "formal-ontology",
   "formal-verification",
   "theorem-proving",
   "lean4",
