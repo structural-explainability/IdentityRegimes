@@ -1,8 +1,8 @@
 # Structural Explainability: Identity Regimes
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Build Status](https://github.com/civic-interconnect/IdentityRegimes/actions/workflows/ci.yml/badge.svg)
-[![Check Links](https://github.com/civic-interconnect/IdentityRegimes/actions/workflows/links.yml/badge.svg)](https://github.com/civic-interconnect/IdentityRegimes/actions/workflows/links.yml)
+![Build Status](https://github.com/structural-explainability/IdentityRegimes/actions/workflows/ci.yml/badge.svg?branch=main)
+[![Check Links](https://github.com/structural-explainability/IdentityRegimes/actions/workflows/links.yml/badge.svg?branch=main)](https://github.com/structural-explainability/IdentityRegimes/actions/workflows/links.yml)
 
 > Lean 4 formalization of the necessary and sufficient identity-and-persistence regimes for neutral accountability substrates.
 
