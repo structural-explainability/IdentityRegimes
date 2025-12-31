@@ -1,7 +1,7 @@
 cff-version: "1.2.0"
 type: software
 
-title: "Structural Explainability: Identity Regimes"
+title: "Structural Explainability: Identity Regimes Formalization"
 version: "0.1.0"
 date-released: "2025-12-25"
 
@@ -17,8 +17,9 @@ keywords:
   - structural-explainability
   - accountability
   - identity-regimes
-  - formal-ontology
+  - formal-specification
   - formal-verification
+  - proof-carrying
   - theorem-proving
   - lean4
 
