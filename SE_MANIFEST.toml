@@ -1,0 +1,52 @@
+schema = "se-manifest-1"
+
+[repo]
+name   = "IdentityRegimes"
+org    = "structural-explainability"
+kind   = "formalization"
+status = "reference"
+since  = "2025"
+summary = "Lean formalization of the identity regimes for neutral substrates."
+
+[layer]
+space = "SE"
+role  = "foundation"
+
+[depends]
+required = [
+  "structural-explainability/spec-se@v1"
+]
+optional = []
+
+[provides]
+artifacts = [
+  "ANNOTATIONS.md",
+  "CITATION.cff",
+  "README.md",
+  "SE_MANIFEST.toml"
+]
+
+[scope]
+includes = [
+  "six identity-and-persistence regimes",
+  "regime-forcing requirements (R1-R6)",
+  "necessity lower bound (>= 6)",
+  "sufficiency witness (a 6-regime model)",
+  "axioms bounding domain applicability"
+]
+excludes = [
+  "causal or normative primitives",
+  "governance or enforcement logic",
+  "domain semantics",
+  "application schemas",
+  "evolution semantics"
+]
+
+
+[citation]
+cff = "CITATION.cff"
+preferred = "repo"
+bib_hint = "case2025-lean-ir"
+
+[traceability]
+identifier_map = "none"

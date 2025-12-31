@@ -35,7 +35,7 @@ REQ.MAPPING.AXIOMS:
 
 | Concept | Module |
 |---|---|
-| Requirements (the finite set of structural roles) | `StructuralExplainability.IdentityRegimes.Requirements` |
-| Substrates / cardinality machinery | `StructuralExplainability.IdentityRegimes.Substrate` |
-| Necessity proof | `StructuralExplainability.IdentityRegimes.Necessity` |
-| Sufficiency construction | `StructuralExplainability.IdentityRegimes.Sufficiency` |
+| Requirements (the finite set of structural roles) | `IdentityRegimes.Core` |
+| Substrates / cardinality machinery | `IdentityRegimes.Core` |
+| Necessity proof | `IdentityRegimes.Core` |
+| Sufficiency construction | `IdentityRegimes.Core` |

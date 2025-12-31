@@ -2,9 +2,11 @@ import Mathlib.Data.Finset.Basic
 import Mathlib.Data.Fintype.Card
 import Mathlib.Tactic
 
+namespace IdentityRegimes.Core
+
 open Classical
 
-namespace StructuralExplainability
+
 
 /-!
 # The Identity Regimes Theorem (Abstract)
@@ -367,4 +369,4 @@ example
   exact this (Nat.le_trans h_ge h_le)
 
 
-end StructuralExplainability
+end IdentityRegimes.Core

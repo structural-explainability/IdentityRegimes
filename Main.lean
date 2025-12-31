@@ -1,9 +1,10 @@
--- Main.lean
+import IdentityRegimes
+
 -- REQ.EXEC.MAIN:
 --   Main entry point for this package.
 --
 -- WHY:
---   This executable exists solely to ensure that the complete
+--   This executable exists solely to ensure that the full
 --   formalization compiles end-to-end under CI and local builds.
 --
 -- OBS:
@@ -11,10 +12,5 @@
 --   This file must remain trivial and stable.
 --   Any failure here indicates a broken proof or import graph.
 
-import Mathlib.Data.Finset.Basic
-import Mathlib.Data.Fintype.Card
-import Mathlib.Tactic
-import StructuralExplainability
-
 def main : IO Unit :=
-  IO.println "Structural Explainability: package verified."
+  IO.println "Success: package verified."

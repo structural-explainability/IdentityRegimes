@@ -29,7 +29,7 @@ It does not apply to:
 ## Build and Run
 
 ```bash
-lake update
+lake update  # only when needed; can be time consuming
 lake build
 lake exe verify
 ```
