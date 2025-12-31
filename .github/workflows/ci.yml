@@ -1,5 +1,11 @@
+# WHY-FILE: Minimal checks for specification repositories.
+# REQ: Any check that can be run locally MUST be available locally via pre-commit.
+# REQ: CI MUST NOT introduce arbitrary rules that are not reproducible locally.
+# OBS: CI does not introduce additional style rules beyond repo configuration.
+
 # REQ: Verify Lean proofs compile on every push and PR.
 # WHY: Proofs are the deliverable; broken proofs must not merge.
+
 name: Lean Action CI
 
 on:
@@ -8,9 +14,29 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  hygiene:
+    name: Repository checks
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: 1) Checkout repository code
+        # WHY: Needed to access files for checks.
+        uses: actions/checkout@v6
+
+      - name: 2) Run pre-commit (all files)
+        # WHY: Single source of truth for locally runnable quality gates.
+        # OBS: Fails if hooks would modify files; does not commit changes.
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files
+
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6 # OBS: v6 current as of Dec 2025
-      - uses: leanprover/lean-action@v1 # OBS: v1 current as of Dec 2025
+      - uses: actions/checkout@v6
+      - uses: leanprover/lean-action@v1
