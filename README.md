@@ -34,29 +34,6 @@ lake build
 lake exe verify
 ```
 
-## Developer (running pre-commit)
-
-Pre-commit is optional; CI will report exact commands if it fails.
-
-Steps to run pre-commit locally. Install `uv`.
-
-Initialize once:
-
-```shell
-uv self update
-uvx pre-commit install
-uvx pre-commit run --all-files
-```
-
-Save progress as needed:
-
-```shell
-git add -A
-# If pre-commit makes changes, re-run `git add -A` before committing.
-git commit -m "update"
-git push -u origin main
-```
-
 ## Documentation
 
 - [Paper to Lean Mapping](./docs/MAPPING.md)
