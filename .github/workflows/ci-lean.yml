@@ -1,0 +1,69 @@
+# ============================================================
+# .github/workflows/ci-lean.yml (Continuous Integration)
+# ============================================================
+# SOURCE: https://github.com/denisecase/templates
+#
+# WHY-FILE: Lean deliverables are proofs; broken proofs must not merge.
+# REQ: Any check that can be run locally MUST be available locally via pre-commit.
+# REQ: CI MUST NOT introduce arbitrary rules that are not reproducible locally.
+
+name: CI Lean
+
+# WHY: Validate repo contents on pushes to main branch and pull requests.
+
+on:
+  push:
+    branches: [main] # WHY: Run when pushing to main branch.
+  pull_request:
+    branches: [main] # WHY: Run on pull requests targeting main branch.
+  workflow_dispatch: # WHY: Allow manual triggering from Actions tab.
+
+permissions: # WHY: Use least privileges required.
+  contents: read
+
+env:
+  PYTHONUNBUFFERED: "1" # WHY: Real-time logging.
+  PYTHONIOENCODING: "utf-8" # WHY: Ensure UTF-8 encoding for international characters.
+
+jobs:
+  ci:
+    name: Repository checks
+    runs-on: ubuntu-latest # WHY: Linux environment matches most production deployments
+    timeout-minutes: 10 # WHY: Prevent hanging jobs. If over time, likely stuck.
+
+    steps:
+      # ============================================================
+      # ASSEMBLE: Get code and set up environment
+      # ============================================================
+
+      - name: A1) Checkout repository code
+        # WHY: Needed to access files for checks.
+        uses: actions/checkout@v6
+
+      - name: A2) Run pre-commit (all files)
+        # WHY: Single source of truth for locally runnable quality gates.
+        # OBS: Fails if hooks would modify files; does not commit changes.
+        id: precommit # WHY: Identify step for conditional follow-up. # WHY: Identify step for conditional follow-up.
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files
+
+      - name: A2f) If pre-commit failed, run it locally
+        if: failure()
+        run: |
+          echo "## Pre-commit failed" >> "$GITHUB_STEP_SUMMARY"
+          echo "Please run pre-commit locally and commit the resulting changes." >> "$GITHUB_STEP_SUMMARY"
+
+  build:
+    name: Build Lean (compile)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: ci # WHY: Build only if ci job succeeds.
+
+    steps:
+      # ============================================================
+      # BUILD: Get code and build Lean project
+      # ============================================================
+
+      - uses: actions/checkout@v6
+      - uses: leanprover/lean-action@v1
