@@ -1,35 +1,43 @@
 # ============================================================
-# SE_MANIFEST.toml (Repository Intent, Scope, and Role)
+# SE_MANIFEST.toml (Repository Declaration)
 # ============================================================
 
-schema = "se-manifest-1"
-schema_url = "https://github.com/structural-explainability/spec-se/blob/main/manifests/se-manifest-1.md"
+schema = "se-manifest-schema"
+schema_url = "https://raw.githubusercontent.com/structural-explainability/se-manifest-schema/main/manifest-schema.toml"
+
+# === Framework Context ===
 
 [meta]
-# Non-normative contextual information
 framework = "Structural Explainability"
 framework_url = "https://github.com/structural-explainability"
-framework_note = "Provides definitions and conventions for SE_MANIFEST semantics."
-description = "Declarative claim of repository intent, scope, and role."
-purpose = "To make explicit the boundaries, responsibilities, and expectations of this repository relative to others."
+purpose = "Declares this repository's role in the Structural Explainability ecosystem."
+
+# === Repository Identity ===
 
 [repo]
 name   = "IdentityRegimes"
 org    = "structural-explainability"
-kind   = "formalization"
+class = "theory"
+kind = "formalization"
 status = "reference"
 since  = "2025"
 summary = "Lean formalization of the identity regimes for neutral substrates."
 
+# === Layer Position ===
+
 [layer]
-space = "SE"
-role  = "foundation"
+space = "structural-explainability"
+role  = "theory"
+
+# === Dependency Declarations ===
 
 [depends]
 required = [
-  "structural-explainability/spec-se@v1"
+  { repo = "spec-se", kind = "semantic", version = "v1" }
 ]
 optional = []
+
+# === Provided Artifacts ===
 
 [provides]
 artifacts = [
@@ -38,6 +46,8 @@ artifacts = [
   "README.md",
   "SE_MANIFEST.toml"
 ]
+
+# === Scope ===
 
 [scope]
 includes = [
@@ -59,7 +69,6 @@ excludes = [
 [citation]
 cff = "CITATION.cff"
 preferred = "repo"
-bib_hint = "case2025-lean-ir"
 
 [traceability]
 identifier_map = "none"
