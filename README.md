@@ -61,12 +61,6 @@ lake build
 lake exe verify
 ```
 
-## Optional Markdown Lint
-
-```shell
-npx markdownlint-cli2 --fix
-```
-
 ## Documentation
 
 - [Paper to Lean Mapping](./docs/MAPPING.md)
