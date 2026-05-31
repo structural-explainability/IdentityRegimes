@@ -40,19 +40,20 @@ jobs:
         # WHY: Needed to access files for checks.
         uses: actions/checkout@v6
 
-      - name: A2) Run pre-commit (all files)
+      - name: A2) Install uv
+        # WHY: The E2) se-validate-manifest pre-commit hook shells out to `uvx`,
+        #      which is NOT preinstalled on the runner.
+        uses: astral-sh/setup-uv@v8.1.0
+        with:
+          enable-cache: true # WHY: Cache uv downloads across runs.
+
+      - name: A3) Run pre-commit (all files)
         # WHY: Single source of truth for locally runnable quality gates.
         # OBS: Fails if hooks would modify files; does not commit changes.
-        id: precommit # WHY: Identify step for conditional follow-up. # WHY: Identify step for conditional follow-up.
+        id: precommit # WHY: Identify step for conditional follow-up.
         uses: pre-commit/action@v3.0.1
         with:
           extra_args: --all-files
-
-      - name: A2f) If pre-commit failed, run it locally
-        if: failure()
-        run: |
-          echo "## Pre-commit failed" >> "$GITHUB_STEP_SUMMARY"
-          echo "Please run pre-commit locally and commit the resulting changes." >> "$GITHUB_STEP_SUMMARY"
 
   build:
     name: Build Lean (compile)
