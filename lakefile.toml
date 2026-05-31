@@ -1,28 +1,17 @@
-# REQ.FILE.PROJECT.IDENTITY
-#   Declares the externally visible identity and build surface of this package.
-#   Sections marked CUSTOM are expected to vary by repository.
+# ============================================================
+# lakefile.toml
+# ============================================================
+# Declares the public Lean package identity, import surface,
+# build targets, dependencies, and verification executables.
 
 # ============================================================
-# REQUIRED PROJECT IDENTITY (stable structure, custom values)
+# PROJECT IDENTITY
 # ============================================================
 
-# REQ.PROJECT.NAME
-#   Canonical package name.
-#   CUSTOM: Must be updated per repository.
 name = "IdentityRegimes"
-
-# REQ.PROJECT.VERSION
-#   Semantic version.
-#   Increment only for externally visible logical changes.
 version = "0.1.0"
-
-# REQ.PROJECT.LICENSE
-#   Open license permitting reuse of formal artifacts.
 license = "MIT"
 
-# REQ.PROJECT.KEYWORDS
-#   Discovery metadata for Lean, GitHub, and academic indexing.
-#   CUSTOM: Adjust to reflect scope.
 keywords = [
   "structural-explainability",
   "accountability",
@@ -40,30 +29,33 @@ keywords = [
 
 # CUSTOM.DEPENDENCIES
 #   External Lean packages required by this formalization.
+
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4"
 rev = "v4.26.0"
 
 # ============================================================
-# REQUIRED BUILD SURFACE (invariant across repos)
+# BUILD SURFACE
 # ============================================================
+# defaultTargets must include the public Lean library root.
 
-# REQ.BUILD.DEFAULT_TARGETS
-#   Default build surface.
-#   MUST include the public library root.
 defaultTargets = ["IdentityRegimes"]
 
-# REQ.LIB.PUBLIC
-#   Public Lean library exported by this package.
-#   Downstream projects import this by name.
+# ============================================================
+# PUBLIC LIBRARY
+# ============================================================
+# Downstream Lean projects import this library root.
+# Lake discovers modules under the matching source directory.
+
 [[lean_lib]]
 name = "IdentityRegimes"
 
-# REQ.EXEC.VERIFICATION
-#   Minimal executable used to verify that the
-#   formalization compiles end-to-end under CI and local builds.
-#   Executable MUST remain trivial.
+# ============================================================
+# EXECUTABLES
+# ============================================================
+# Export executables generate machine-readable contract artifacts.
+
 [[lean_exe]]
 name = "verify"
 root = "Main"
