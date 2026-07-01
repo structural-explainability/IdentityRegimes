@@ -38,7 +38,7 @@ jobs:
 
       - name: A1) Checkout repository code
         # WHY: Needed to access files for checks.
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: A2) Install uv
         # WHY: The E2) se-validate-manifest pre-commit hook shells out to `uvx`,
@@ -66,5 +66,5 @@ jobs:
       # BUILD: Get code and build Lean project
       # ============================================================
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: leanprover/lean-action@v1
