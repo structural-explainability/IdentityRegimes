@@ -43,7 +43,7 @@ jobs:
       - name: A2) Install uv
         # WHY: The E2) se-validate-manifest pre-commit hook shells out to `uvx`,
         #      which is NOT preinstalled on the runner.
-        uses: astral-sh/setup-uv@v8.1.0
+        uses: astral-sh/setup-uv@v8.2.0
         with:
           enable-cache: true # WHY: Cache uv downloads across runs.
 
