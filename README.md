@@ -1,4 +1,25 @@
-# Structural Explainability: Identity Regimes
+# ARCHIVED: Retired Research
+
+> **Status:** Retired October 2026. No longer maintained.
+>
+> This repository preserves an earlier Lean 4 formalization developed
+> during the Structural Explainability research program.
+> It informed the current research, which no longer builds on it.
+>
+> Its definitions, assumptions, and results
+> **no longer authoritative** and do not reflect current Structural
+> Explainability theory.
+>
+> It is preserved unchanged for historical reference and
+> research provenance.
+>
+> Current formalizations are maintained in
+> [Structural Explainability](https://github.com/structural-explainability)
+> in the **`se-theory-` repositories**.
+
+---
+
+## Structural Explainability: Identity Regimes
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT)
 ![Build Status](https://github.com/structural-explainability/IdentityRegimes/actions/workflows/ci-lean.yml/badge.svg?branch=main)
