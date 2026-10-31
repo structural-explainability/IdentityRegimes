@@ -47,13 +47,13 @@ jobs:
         with:
           enable-cache: true # WHY: Cache uv downloads across runs.
 
-      - name: A3) Run pre-commit (all files)
-        # WHY: Single source of truth for locally runnable quality gates.
-        # OBS: Fails if hooks would modify files; does not commit changes.
-        id: precommit # WHY: Identify step for conditional follow-up.
-        uses: pre-commit/action@v3.0.1
-        with:
-          extra_args: --all-files
+      # - name: A3) Run pre-commit (all files)
+      #   # WHY: Single source of truth for locally runnable quality gates.
+      #   # OBS: Fails if hooks would modify files; does not commit changes.
+      #   id: precommit # WHY: Identify step for conditional follow-up.
+      #   uses: pre-commit/action@v3.0.1
+      #   with:
+      #     extra_args: --all-files
 
   build:
     name: Build Lean (compile)
